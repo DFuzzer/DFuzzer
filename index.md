@@ -7,34 +7,32 @@ Motivated by the impact of the diverse seed queues on fuzzing for DL systems, we
 The framework of the proposed diversity-driven seed queue construction approach (DFuzzer) is illustrated below.
 ![Image](https://github.com/DFuzzer/DFuzzer/blob/main/d2s2framework2.jpg)
 
-### Markdown
+## Implementation
+We conducted a series of empirical studies to evaluate the performance of DFuzzer. All related materials (including datasets, models, fuzzers and testing results) are available at this website.
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+### Datasets
+In our experiments, we adopted three popularly used datasets with different types of image: MNIST, ImageNet, and CIFAR10.
 
-```markdown
-Syntax highlighted code block
+Download images of **MNIST** from ![here](http://yann.lecun.com/exdb/mnist/).
 
-# Header 1
-## Header 2
-### Header 3
+Download images of **ImageNet** from ![here](https://image-net.org/).
 
-- Bulleted
-- List
+Download images of **CIFAR10** from ![here](https://cifar.ca/).
 
-1. Numbered
-2. List
+### Models
 
-**Bold** and _Italic_ and `Code` text
+We utilized the open-source DL models to evaluate the performance of DFuzzer, including LeNet-1, LeNet-4, LeNet-5, VGG-16, VGG-19, ResNet-50, and 20 layer CNN with max-pooling and dropout layers. VGG-16, VGG-19, and ResNet50 were pre-trained, and could be found in the Keras. LeNet-1, LeNet-4, and LeNet-5 are provided at the repository: https://github.com/peikexin9/deepxplore. 20 layers CNN is available at the repository: https://github.com/hfeniser/DeepSmartFuzzer.
 
-[Link](url) and ![Image](src)
-```
+### Fuzzers
 
-For more details see [Basic writing and formatting syntax](https://docs.github.com/en/github/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax).
+As summarized in Zhang et al.'s survey, there are several open-source fuzzers for DL systems. The proposed DFuzzer technique can generate diverse seed queue aiming at helping these fuzzers detect more faults (or generate more adversarial inputs). In this study, we selected the following five representative fuzzers, in the evaluation of DFuzzer. 
 
-### Jekyll Themes
+1. DeepXplore (available at the repository: https://github.com/peikexin9/deepxplore) is the first white box fuzzer for system- atically testing DL systems and automatically identifying faults without manual labeling. It performs gradient as- cent to solve a joint optimization problem that maximizes both neuron coverage and the number of potentially faults. Three mutation strategies have been proposed for practitioners to use when applying DeepXplore.
+2. DLFuzz (available at the repository: https://github.com/turned2670/DLFuzz) keeps mutating the input to maximize the neuron coverage. It can predict difference between the original input and the mutated input, without manual labeling effort. Four neuron selection strategies have been proposed for practitioners to adopt when using DLFuzz.
+3. DeepHunter (available at the repository: https://github.com/hfeniser/DeepSmartFuzzer) performs the so-called “metamorphic mutation” to generate new test cases that preserve the correct semantics. Two seed selection strategies have been proposed for practitioners to use for implementing DeepHunter.
+4. TensorFuzz (available at the repository: https://github.com/hfeniser/DeepSmartFuzzer) is a coverage-guided fuzzing method for neural networks, in which random mutations of inputs are guided by a coverage metric toward the goal of satisfying user-specified constraints, and an approximate nearest neighbor algorithms is proposed to provide this coverage metric.
+5. DeepSmartFuzzer (available at the repository: https://github.com/hfeniser/DeepSmartFuzzer) employs Monte Carlo Tree Search to drive the coverage-guided search in the pursuit of high coverage.
 
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/DFuzzer/DFuzzer/settings/pages). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
+In addition, the source code of DFuzzer is available at the repository: https://github.com/DFuzzer/DFuzzer.
 
-### Support or Contact
 
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://support.github.com/contact) and we’ll help you sort it out.
