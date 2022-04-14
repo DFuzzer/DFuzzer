@@ -13,11 +13,11 @@ We conducted a series of empirical studies to evaluate the performance of DFuzze
 ### Datasets
 In our experiments, we adopted three popularly used datasets with different types of image: MNIST, ImageNet, and CIFAR10.
 
-Download images of **MNIST** from ![here](http://yann.lecun.com/exdb/mnist/).
+Download images of **MNIST** from [here](http://yann.lecun.com/exdb/mnist/).
 
-Download images of **ImageNet** from ![here](https://image-net.org/).
+Download images of **ImageNet** from [here](https://image-net.org/).
 
-Download images of **CIFAR10** from ![here](https://cifar.ca/).
+Download images of **CIFAR10** from [here](https://cifar.ca/).
 
 ### Models
 
