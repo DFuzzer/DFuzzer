@@ -2,13 +2,10 @@
 
 The quality of seed queue may highly influence the fuzzing result. Intuitively, a high diversity in seed queues can help fuzzers detect different kinds of faults; in other words, a seed queue without a high diversity may cause the omission of some critical faults and thus affect the fault-detection effectiveness of fuzzing.
 
-Motivated by the impact of the diverse seed queues on fuzzing for DL systems, we propose a diversity-driven seed queue construction approach, namely DFuzzer. DFuzzer attempts to distribute the seeds as “far away” from one another as possible. Based on the idea of “even spreading”, DFuzzer constructs seed queue by incrementally updating the “best” seeds chosen from the test pool. In addition, we propose two difference measurement metrics `IBDM` and `FBDM` based on the information theory and deep features, respectively, to quantify the difference between the seeds in the ongoing seed queue and those in the test pool. Accordingly, two algorithms, namely DFuzzer-IB and DFuzzer-FB, are developed to implement DFuzzer based on IBDM and FBDM, respectively.
+Motivated by the impact of the diverse seed queues on fuzzing for DL systems, we propose a diversity-driven seed queue construction approach, namely _DFuzzer_. DFuzzer attempts to distribute the seeds as “far away” from one another as possible. Based on the idea of “even spreading”, DFuzzer constructs seed queue by incrementally updating the “best” seeds chosen from the test pool. In addition, we propose two difference measurement metrics _IBDM_ and _FBDM_ based on the information theory and deep features, respectively, to quantify the difference between the seeds in the ongoing seed queue and those in the test pool. Accordingly, two algorithms, namely _DFuzzer-IB_ and _DFuzzer-FB_, are developed to implement DFuzzer based on IBDM and FBDM, respectively.
 
 The framework of the proposed diversity-driven seed queue construction approach (DFuzzer) is illustrated below.
-
-
-
-
+![image](src)
 
 ### Markdown
 
