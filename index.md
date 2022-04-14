@@ -7,6 +7,9 @@ Motivated by the impact of the diverse seed queues on fuzzing for DL systems, we
 The framework of the proposed diversity-driven seed queue construction approach (DFuzzer) is illustrated below.
 ![Image](https://github.com/DFuzzer/DFuzzer/blob/main/d2s2framework2.jpg)
 
+The details of DFuzzer are described in paper titled “Improving the Effectiveness of Fuzzing for Deep Learning Models: An Approach Driven by Diversity
+in Seed Queue”.
+
 ## Implementation
 We conducted a series of empirical studies to evaluate the performance of DFuzzer. All related materials (including datasets, models, fuzzers and testing results) are available at this website.
 
