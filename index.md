@@ -1,8 +1,14 @@
 ## The framework of DFuzzer
 
-You can use the [editor on GitHub](https://github.com/DFuzzer/DFuzzer/edit/gh-pages/index.md) to maintain and preview the content for your website in Markdown files.
+The quality of seed queue may highly influence the fuzzing result. Intuitively, a high diversity in seed queues can help fuzzers detect different kinds of faults; in other words, a seed queue without a high diversity may cause the omission of some critical faults and thus affect the fault-detection effectiveness of fuzzing.
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+Motivated by the impact of the diverse seed queues on fuzzing for DL systems, we propose a diversity-driven seed queue construction approach, namely DFuzzer. DFuzzer attempts to distribute the seeds as “far away” from one another as possible. Based on the idea of “even spreading”, DFuzzer constructs seed queue by incrementally updating the “best” seeds chosen from the test pool. In addition, we propose two difference measurement metrics `IBDM` and `FBDM` based on the information theory and deep features, respectively, to quantify the difference between the seeds in the ongoing seed queue and those in the test pool. Accordingly, two algorithms, namely DFuzzer-IB and DFuzzer-FB, are developed to implement DFuzzer based on IBDM and FBDM, respectively.
+
+The framework of the proposed diversity-driven seed queue construction approach (DFuzzer) is illustrated below.
+
+
+
+
 
 ### Markdown
 
