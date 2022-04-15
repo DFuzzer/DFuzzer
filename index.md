@@ -36,6 +36,50 @@ As summarized in Zhang et al.'s survey, there are several open-source fuzzers fo
 4. TensorFuzz (available at this [repository](https://github.com/hfeniser/DeepSmartFuzzer)) is a coverage-guided fuzzing method for neural networks, in which random mutations of inputs are guided by a coverage metric toward the goal of satisfying user-specified constraints, and an approximate nearest neighbor algorithms is proposed to provide this coverage metric.
 5. DeepSmartFuzzer (available at this [repository](https://github.com/hfeniser/DeepSmartFuzzer)) employs Monte Carlo Tree Search to drive the coverage-guided search in the pursuit of high coverage.
 
-In addition, the source code of DFuzzer is available at the repository: https://github.com/DFuzzer/DFuzzer.
+### DFuzzer
+The source code of DFuzzer is available at the repository: https://github.com/DFuzzer/DFuzzer.
+
+#### The prerequisite of using DFuzzer
+
+The code should be run using python 3.6.2, Tensorflow 1.5.0, Keras 2.1.6, PIL, h5py, and opencv-python.
+
+#### To run
+
+In root directory, the users could execute the following command in the terminal:
+```
+python main.py -h
+```
+then the usage of DFuzzer is described as follow:
+```
+usage: main.py [-h] [-z ZIP_DIR] [-c CANDIDATE_SET_SIZE] [-t THRESHOLD]
+               {MNIST,CIFAR10,ImageNet} data_dir size target_dir seed_num
+               {random,IB-SQ,DFuzzer-IB,DFuzzer-FB}
+
+Main function for generating seed queues using random, IB-SQ, and DFuzzer
+techniques for different datasets
+
+positional arguments:
+  {MNIST,CIFAR10,ImageNet}
+                        the name of dataset
+  data_dir              the dir that saves the original test cases
+  size                  the size of needed seed queue
+  target_dir            the dir that saves the selected test cases
+  seed_num              the number of the specified seed
+  {random,IB-SQ,DFuzzer-IB,DFuzzer-FB}
+                        the technique that is usd to generate seed queue
+
+optional arguments:
+  -h, --help            show this help message and exit
+  -z ZIP_DIR, --zip_dir ZIP_DIR
+                        the dir that saves the compressed images
+  -c CANDIDATE_SET_SIZE, --candidate_set_size CANDIDATE_SET_SIZE
+                        the size of candidate set
+  -t THRESHOLD, --threshold THRESHOLD
+                        the threshold that limits the number of comparison
+                        times between the candidate seeds and the seeds
+                        contained in the seed queue
+```
+
+
 
 
